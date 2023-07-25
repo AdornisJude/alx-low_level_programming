@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define PASSWORD_LENGTH 16
+#define PASSWORD_LENGTH 8
 
 int main(void) 
 {
