@@ -5,7 +5,7 @@
 * main -  This helps to print the product of two numbers
 * @argc: Counts the number of arguments used
 * @argv: This represents the argument vector
-* Return: This returns 0 always
+* Return: 0 always
 */
 
 int main(int argc, char *argv[])
