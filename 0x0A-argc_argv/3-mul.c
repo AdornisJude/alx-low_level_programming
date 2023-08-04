@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	int First_Number, Second_Number, Prod = 0;
-	
+
 	if (argc != 3)
 	{
 		printf("Error\n");
