@@ -4,8 +4,8 @@
 /**
 * main - the main function
 * @argc: this counts the arguments
-* @argv: this indicates the arguments vector
-* Return: returns 0
+* @argv: array tha holds the command line argument
+* Return: returns (0) when successful
 */
 
 int main(int argc, char *argv[])
