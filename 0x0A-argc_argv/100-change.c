@@ -1,44 +1,47 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
 
 /**
-* main - the main function
-* @argc: this counts the arguments
-* @argv: array tha holds the command line argument
-* Return: returns (0) when successful
-*/
+ * main - prints minimum number coins to make change for an amount of money.
+ * @argc: number of arguments
+ * @argv: array with the arguments
+ *
+ * Return: always 0
+ **/
 
 int main(int argc, char *argv[])
 {
-	int cents, coins = 0;
+	int dev = 0, coins = 0;
+	char c[] = "Error";
 
 	if (argc != 2)
 	{
-		printf("Error\n");
+		printf("%s\n", c);
 		return (1);
 	}
-	cents = atoi(argv[1]);
-	if (cents < 0)
+	dev = atoi(argv[1]);
+	while (dev >= 25)
 	{
-		printf("%d\n", 0);
-	}
-	while (cents > 0)
-	{
-		if (cents >= 25)
-			cents = cents - 25;
-		else if (cents >= 10)
-			cents = cents - 10;
-		else if (cents >= 5)
-			cents = cents - 5;
-		else if (cents >= 2)
-			cents = cents - 2;
-		else if (cents >= 1)
-			cents = cents - 1;
-		else
-			break;
+		dev -= 25;
 		coins++;
 	}
+	while (dev >= 10)
+	{
+		dev -= 10;
+		coins++;
+	}
+	while (dev >= 5)
+	{
+		dev -= 5;
+		coins++;
+	}
+	while (dev >= 2)
+	{
+		dev -= 2;
+		coins++;
+	}
+	if (dev == 1)
+		coins++;
 	printf("%d\n", coins);
 	return (0);
 }
