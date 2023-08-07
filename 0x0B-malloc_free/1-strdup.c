@@ -19,13 +19,14 @@ char *_strdup(char *str)
 	c++;
 	}
 
-	newStr = malloc(sizeof(char) * (a + 1));
+	newStr = malloc(a * sizeof(char));
 
 	if (str == NULL)
 	return (NULL);
 
 	for (b = 0; b <= a; b++)
-	newStr[b] = str[b];
-
+	{
+		newStr[b] = str[b];
+	}
 	return (newStr);
 }
