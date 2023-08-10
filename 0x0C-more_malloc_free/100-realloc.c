@@ -14,30 +14,43 @@
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	char *point;
-	unsigned int i, lower = 0;
+	void *mem;
+	char *ptr_copy, *filler;
+	unsigned int index;
 
 	if (new_size == old_size)
 		return (ptr);
+
 	if (ptr == NULL)
-		return (malloc(new_size));
-	if (new_size == 0 &&  ptr != NULL)
+	{
+		mem = malloc(new_size);
+
+		if (mem == NULL)
+			return (NULL);
+
+		return (mem);
+	}
+
+	if (new_size == 0 && ptr != NULL)
 	{
 		free(ptr);
 		return (NULL);
 	}
-	if (new_size < old_size)
-		lower = new_size;
-	else
-		lower = old_size;
-	point = malloc(new_size);
-	if (point == NULL)
-		return (NULL);
-	for (i = 0; i < lower; i++)
-	{
 
-		point[i] = ((char *) ptr)[i];
+	ptr_copy = ptr;
+	mem = malloc(sizeof(*ptr_copy) * new_size);
+
+	if (mem == NULL)
+	{
+		free(ptr);
+		return (NULL);
 	}
+
+	filler = mem;
+
+	for (index = 0; index < old_size && index < new_size; index++)
+		filler[index] = *ptr_copy++;
+
 	free(ptr);
-	return (point);
+	return (mem);
 }
