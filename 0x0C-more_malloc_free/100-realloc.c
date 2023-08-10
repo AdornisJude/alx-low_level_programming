@@ -9,7 +9,6 @@
  * @new_size: The size in bytes for the new memory.
  *
  * Return: If new_size == old_size - ptr.
- *         If new_size == 0 and ptr is not NULL - NULL.         
  */
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
