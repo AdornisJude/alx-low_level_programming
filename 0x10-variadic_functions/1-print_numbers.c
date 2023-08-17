@@ -13,9 +13,9 @@
 
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	va_list arguments;
 	unsigned int a;
 	const char *s_rator;
+	va_list arguments;
 
 	if (separator == NULL || *separator == 0)
 		s_rator = " ";
@@ -24,11 +24,12 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	va_start(arguments, n);
 
+	if (n > 0)
+		printf("%d", va_arg(arguments, unsigned int));
+
 	for (a = 0; a < n; a++)
 	{
 		printf("%s%d", s_rator, va_arg(arguments, unsigned int));
-		if (separator && a < n - 1)
-			printf("%s", separator);
 	}
 
 	printf("\n");
