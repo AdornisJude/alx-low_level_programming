@@ -14,25 +14,17 @@
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	unsigned int a;
-	const char *s_rator;
 	va_list arguments;
-
-	if (separator == NULL || *separator == 0)
-		s_rator = " ";
-	else
-		s_rator = (char *) separator;
 
 	va_start(arguments, n);
 
-	if (n > 0)
-		printf("%d", va_arg(arguments, unsigned int));
-
 	for (a = 0; a < n; a++)
 	{
-		printf("%s%d", s_rator, va_arg(arguments, unsigned int));
+		printf("%d", va_arg(arguments, int));
+		if (separator && a < n - 1)
+			printf("%s", separator);
 	}
 
 	printf("\n");
-
 	va_end(arguments);
 }
